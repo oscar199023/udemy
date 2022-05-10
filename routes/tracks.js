@@ -4,15 +4,13 @@ const res = require("express/lib/response");
 //funcion de express para manejar las rutas
 const router = express.Router();
 
-// Hacer http://localhost/tracks GET, POST, DELETE, PUT
+const { getItems, getItem, createItem } = require("../controllers/tracks")
 
 
-//crear una rita con el tipo get
-router.get("/", (req, res) => {
 
-    const data = ["Hola", "Mundo"]
 
-    res.send({data})
-})
+//crear una ruta con el tipo get
+router.get("/", getItems);
+router.post("/", createItem);
 
-module.exports = router
+module.exports = router;
